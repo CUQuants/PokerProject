@@ -9,3 +9,6 @@ class CardDeck:
 
     def shuffle(self):
         random.shuffle(self.cards)
+
+    def deal(self):
+        return
