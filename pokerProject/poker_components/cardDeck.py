@@ -1,7 +1,6 @@
-from card import Card
-from suit import Suit
+from pokerProject.poker_components.card import Card
+from pokerProject.poker_components.suit import Suit
 import random
-
 
 class CardDeck:
     def __init__(self):
@@ -13,4 +12,5 @@ class CardDeck:
         random.shuffle(self.cards)
 
     def deal(self):
+        #TODO implement deal function
         return

@@ -19,4 +19,5 @@ class Card:
         return (self.rank == other.rank)
 
     def __repr__(self):
+        #TODO: make this prettier
         return str(self.rank)+" of "+ str(self.suit)

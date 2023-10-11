@@ -1,6 +1,7 @@
-from card import Card
-from suit import Suit
-from hand_analysis.math_functions import linearInterpolation
+from pokerProject.poker_components.card import Card
+from pokerProject.poker_components.suit import Suit
+from pokerProject.hand_analysis.simple_analysis import findRepeated
+from pokerProject.hand_analysis.math_functions import linearInterpolation
 '''
     0 - High Card(2 = 0.0, 14 = .99)
     1 - One Pair(2=1.0, 14(ace)=1.99)
@@ -18,9 +19,9 @@ NUM_RANKS = 13
 NUM_SUITS = 4
 CARDS_PER_DECK = 52
 
-def analyzeHand(cards):
+def analyze7Hand(cards):
     """
-    Takes in an array of 5 cards and returns the highest score in the hand
+    Takes in an array of 7 cards and returns the highest score in the hand
     """
     cards = sorted(cards)
     num_cards = len(cards)
@@ -43,18 +44,36 @@ def analyzeHand(cards):
             four_count+=1
     
     #check for a flush
+    #TODO adapt this to work for hands that aren't 5 cards
     is_flush = False
     for i in range(NUM_SUITS):
         if suits[i]==num_cards:
             is_flush = True
             break
     #check for a straight
+    is_straight = False
+    num_in_row = 0
+    prev = counts[-1]!=0
+    #loop through counts looking for nonzero in an order of 5
+    for i in range(NUM_RANKS):
+        current = counts[i]!=0
+        if current and prev:
+            if num_in_row==0:
+                num_in_row=2
+            else:
+                num_in_row+=1
+        else:
+            num_in_row = 0
+        if num_in_row>=5:
+            is_straight = True
+        prev = current
+
     spread5 = cards[-1].rank-cards[0].rank
     spread4 = cards[-2].rank-cards[0].rank
     if is_flush:
         #flush
         score = linearInterpolation(cards[-1].rank, 5, 5.99)
-        if isStraight(cards):
+        if spread5 ==4:
             if cards[0].rank==10:
                 #royal flush
                 score = 9
@@ -62,13 +81,14 @@ def analyzeHand(cards):
                 #straight flush 
                 score = linearInterpolation(cards[0].rank, 8, 8.99, minCard=1, maxCard=9)
         elif spread5 == 12 and spread4 == 3 and cards[0].rank == 2 and cards[-1].rank == 14:
+            # TODO adapt for more than 5 cards
             #special case of 2345A
             score = linearInterpolation(1, 8, 8.99, minCard=1, maxCard=9)
     else:
-        if isStraight(cards):
+        if is_straight:
+            # TODO special case 2345A
             #straight
             score = linearInterpolation(cards[0].rank, 4, 4.99, minCard=1, maxCard=10)
-        elif spread5 == 12 and spread4 == 3 and cards[0].rank == 2 and cards[-1].rank == 14:
             #special case of 2345A
             score = linearInterpolation(1, 4, 4.99, minCard=1, maxCard=10)
         elif four_count == 1:
@@ -116,13 +136,9 @@ def findRepeated(cards):
             most_repeated_card = value
 
     return most_repeated_card
-    
-def isStraight(cards):
+
+
+def isStraight7(cards):
     """
-    checks a sorted array of 5 cards if they are in sequential order or not
+    checks a sorted array of 7 cards if they are in sequential order or not
     """
-    cards_len = len(cards)
-    for i in range(cards_len-1):
-        if cards[i].rank+1!=cards[i+1].rank:
-            return False
-    return True
