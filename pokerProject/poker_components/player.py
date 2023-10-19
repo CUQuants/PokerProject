@@ -1,7 +1,7 @@
 class npcPlayer:
  def __init__(self, name):
     self.name = name
-    hand = []
+    self.hand = []
 
  def recieve_card(self, card):
    self.hand.append(card)
@@ -15,3 +15,4 @@ class npcPlayer:
  def raise_bet(self):
     return
  
+# Turn function:  Called by table class and asks player to make a decisions

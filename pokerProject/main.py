@@ -2,6 +2,7 @@
 
 from poker_components.cardDeck import CardDeck
 from poker_components.player import npcPlayer as Player
+from poker_components.table import Table as table
 # from poker_components.card import Card
 
 def __main__():
@@ -9,7 +10,7 @@ def __main__():
     cardDeck.shuffle()
     players = []
     for i in range(6):
-        player = Player(i)
+        table.add_player(Player(i)) 
         player.hand = cardDeck.deal()
         players.append(player)
         print(player.hand)
