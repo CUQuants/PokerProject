@@ -2,6 +2,7 @@ class npcPlayer:
  def __init__(self, name):
     self.name = name
     self.hand = []
+    self.balance = 1000
 
  def recieve_card(self, card):
    self.hand.append(card)

@@ -1,10 +1,11 @@
 from poker_components.cardDeck import CardDeck
-from poker_components.player import npcPlayer as Player
+from poker_components.player import npcPlayer as player
 
 class Table:
     def __init__(self, name):
         self.pot = 0
         self.players = []
+        self.active_players = []
         self.current_bet = []
         self.deck = CardDeck()
         
