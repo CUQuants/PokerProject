@@ -1,5 +1,5 @@
-from pokerProject.poker_components.card import Card
-from pokerProject.poker_components.suit import Suit
+from poker_components.card import Card
+from poker_components.suit import Suit
 import random
 
 class CardDeck:
@@ -13,4 +13,7 @@ class CardDeck:
 
     def deal(self):
         #TODO implement deal function
+        return self.cards.pop()
+        
+        
         return
