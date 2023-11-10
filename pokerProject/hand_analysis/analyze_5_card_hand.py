@@ -3,18 +3,17 @@ from pokerProject.poker_components.suit import Suit
 from pokerProject.hand_analysis.simple_analysis import isStraight5, findRepeated
 from pokerProject.hand_analysis.math_functions import linearInterpolation
 
-'''
-    0 - High Card(2 = 0.0, 14 = .99)
-    1 - One Pair(2=1.0, 14(ace)=1.99)
-    2 - Two Pair(2&3=2.0, 14+13=2.99)
-    3 - Three of a Kind(2=3.0, 14=3.99)
-    4 - Straight(2-6=4.0, 10-14=4.99)
-    5 - Flush(2=5.0, 14=5.99)
-    6 - Full House(2s&3s=6.0, 14s&13s=6.99)
-    7 - Four of a Kind(2=7.0, 14=7.99)
-    8 - Straight Flush(2-6=8.0, 9-13=8.99)
-    9 - Royal Flush(always 9.0)
-'''
+#    0 - High Card(2 = 0.0, 14 = .99)
+#    1 - One Pair(2=1.0, 14(ace)=1.99)
+#    2 - Two Pair(2&3=2.0, 14+13=2.99)
+#    3 - Three of a Kind(2=3.0, 14=3.99)
+#    4 - Straight(2-6=4.0, 10-14=4.99)
+#    5 - Flush(2=5.0, 14=5.99)
+#    6 - Full House(2s&3s=6.0, 14s&13s=6.99)
+#    7 - Four of a Kind(2=7.0, 14=7.99)
+#    8 - Straight Flush(2-6=8.0, 9-13=8.99)
+#    9 - Royal Flush(always 9.0)
+
 STARTING_RANK = 2
 NUM_RANKS = 13
 NUM_SUITS = 4
@@ -22,7 +21,7 @@ CARDS_PER_DECK = 52
 
 def analyze5Hand(cards):
     """
-    Takes in an array of 5 cards and returns the highest score in the hand
+    Takes in an array of 5 cards and returns the score of the hand
     """
     num_cards = len(cards)
     if num_cards !=5:
@@ -57,6 +56,8 @@ def analyze5Hand(cards):
     #check for a straight
     spread5 = cards[-1].rank-cards[0].rank
     spread4 = cards[-2].rank-cards[0].rank
+
+
     if is_flush:
         #flush
         score = linearInterpolation(cards[-1].rank, 5, 5.99)
@@ -99,5 +100,3 @@ def analyze5Hand(cards):
             score = linearInterpolation(findRepeated(cards), 1.0,1.99)
 
     return score
-
-

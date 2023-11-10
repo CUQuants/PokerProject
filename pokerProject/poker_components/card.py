@@ -20,4 +20,4 @@ class Card:
 
     def __repr__(self):
         #TODO: make this prettier
-        return str(self.rank)+" of "+ str(self.suit)
+        return str(self.rank)+" of "+ str(self.suit.name)
