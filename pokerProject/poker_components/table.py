@@ -5,6 +5,7 @@ class Table:
     def __init__(self, name):
         self.pot = 0
         self.players = []
+        self.public_cards = []
         self.active_players = 0
         self.current_bet = 10
         self.deck = CardDeck()
@@ -15,6 +16,12 @@ class Table:
         
     def deal_player(self, player):
         self.players[player].recieve_card(self.deck.deal())
+        return
+    
+    def deal_public(self):
+        self.public_cards.append(self.deck.deal())
+        self.public_cards.append(self.deck.deal())
+        self.public_cards.append(self.deck.deal())
         return
     
     def play(self, current_turn):

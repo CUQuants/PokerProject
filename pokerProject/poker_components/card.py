@@ -1,4 +1,6 @@
 class Card:
+    SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"]
+
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
@@ -20,4 +22,4 @@ class Card:
 
     def __repr__(self):
         #TODO: make this prettier
-        return str(self.rank)+" of "+ str(self.suit.name)
+        return str(self.rank)+" of "+ str(self.SUITS[self.suit])

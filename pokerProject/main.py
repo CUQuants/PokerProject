@@ -11,6 +11,7 @@ def __main__():
     for i in range(6):
         game_table.add_player(Player(i))
         game_table.deal_player(i)
+        game_table.deal_player(i)
         game_table.active_players += 1
         print(game_table.players[i].hand)
         game_table.pot += game_table.current_bet;

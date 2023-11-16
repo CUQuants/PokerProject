@@ -1,0 +1,39 @@
+1. Game Setup
+
+    Initialize the Game: Set up the poker table, initialize the deck of cards, and prepare any necessary game variables.
+    Player Registration: Add players to the game. This could involve setting player names, initial chip counts, etc.
+
+2. Pre-Game Preparations
+
+    Shuffle the Deck: Randomize the order of the cards in the deck.
+    Determine Dealer: Choose the initial dealer, often done randomly or through a dealer button that rotates each round.
+    Blinds and Antes: If applicable, set up the blinds or antes. In Texas Hold'em, the two players to the left of the dealer post the small blind and big blind.
+
+3. Dealing Cards
+
+    Hole Cards: Deal two cards face down to each player. These are the players' private cards.
+
+4. Betting Rounds
+
+    Pre-Flop Betting: Starting with the player to the left of the big blind, each player can call, raise, or fold.
+    The Flop: Deal three community cards face up on the table.
+    Flop Betting: Another round of betting, starting with the player to the dealer's left.
+    The Turn: Deal one more community card (the fourth card).
+    Turn Betting: Another round of betting.
+    The River: Deal the final community card (the fifth card).
+    Final Betting: The last round of betting.
+
+5. Showdown
+
+    Reveal Hands: Remaining players reveal their hole cards.
+    Determine Winner: Use the hand analysis logic to determine the winner based on the best five-card hand each player can make using their hole cards and the community cards.
+    Award Pot: The winner(s) receive the pot. In case of a tie, the pot is split.
+
+6. Post-Game
+
+    Reset for Next Round: Reset the deck, rotate the dealer button, and prepare for the next round.
+    Check for Game End Conditions: If the game has a set number of rounds or if players have been eliminated based on chip count, check if the game should end.
+
+7. End of Game
+
+    Declare Final Winner: If the game has ended, declare the final winner based on chip count or other criteria.
