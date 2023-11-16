@@ -13,6 +13,8 @@ def __main__():
         game_table.deal_player(i)
         game_table.active_players += 1
         print(game_table.players[i].hand)
+        game_table.pot += game_table.current_bet;
+        game_table.players[i].balance -= game_table.current_bet;
             
     while game_table.active_players > 1:
         for i in range(len(game_table.players)):

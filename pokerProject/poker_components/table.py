@@ -6,7 +6,7 @@ class Table:
         self.pot = 0
         self.players = []
         self.active_players = 0
-        self.current_bet = 0
+        self.current_bet = 10
         self.deck = CardDeck()
         # self.current_turn = 0
         

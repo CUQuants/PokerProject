@@ -12,8 +12,5 @@ class CardDeck:
         random.shuffle(self.cards)
 
     def deal(self):
-        #TODO implement deal function
         return self.cards.pop()
-        
-        
-        return
+
