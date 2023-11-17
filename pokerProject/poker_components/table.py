@@ -7,7 +7,7 @@ class Table:
         self.players = []
         self.public_cards = []
         self.active_players = 0
-        self.current_bet = 10
+        self.current_bet = 0
         self.deck = CardDeck()
         # self.current_turn = 0
         
@@ -88,7 +88,7 @@ class Table:
                 
             curPlayer.raise_bet(amount_raised)
             self.pot += amount_raised
-            self.current_bet += amount_raised
+            self.current_bet = amount_raised
             
         elif decision == "4":
             if self.current_bet == 0:
