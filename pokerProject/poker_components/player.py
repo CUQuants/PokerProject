@@ -26,6 +26,7 @@ class Player:
     print("You raised " + str(amount_raised) + " chips.")
     self.balance -= amount_raised
 
-  def check(self, table): 
+  def check(self): 
     print("You checked.")
+    return
  

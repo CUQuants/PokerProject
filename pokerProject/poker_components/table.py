@@ -96,7 +96,6 @@ class Table:
             else:
                 print("You cannot check. Please choose another option.")
                 self.play(current_turn)
-            curPlayer.check()
         else:
             print("Invalid input.  Please try again.")
             self.play(current_turn)
